@@ -1,12 +1,7 @@
 // next.config.js
 const withAntdLess = require('next-plugin-antd-less');
 
-module.exports = withAntdLess({
-  // experimental: {
-  //   forceSwcTransforms: true,
-  // },
-  // swcMinify: true,
-  // modifyVars: { '@primary-color': '#686de0' }, 
+module.exports = withAntdLess({ 
   lessVarsFilePath: './src/styles/variables.less',
   lessVarsFilePathAppendToEndOfContent: false,
   cssLoaderOptions: {
@@ -15,7 +10,7 @@ module.exports = withAntdLess({
     exportLocalsConvention: "camelCase",
     exportOnlyLocals: false,
     getLocalIdent: (context, localIdentName, localName, options) => {
-      return "class_name";
+      return "_class_name_";
     },
   },
 
@@ -24,29 +19,6 @@ module.exports = withAntdLess({
   },
 
   webpack(config) {
-    config.module.rules.push(
-      //   {
-      //   test: /\.css$/,
-      //   use: [
-      //     {
-      //       loader: 'postcss-loader',
-      //       options: {
-      //         postcssOptions: { plugins: ['postcss-import', 'postcss-url', '@tailwindcss/jit'] },
-      //       },
-      //     },
-      //   ]
-      // }, 
-      // {
-      //   test: /\.tsx?$/,
-      //   use: [
-      //     'cache-loader',
-      //     {
-      //       loader: 'esbuild-loader',
-      //       options: { loader: 'tsx' },
-      //     },
-      //   ]
-      // } 
-      )
     return config;
   }
 });
