@@ -67,4 +67,4 @@ import avatar from '@/public/avatar.png';
 
 ## License
 
-NTQ company license
+MIT license
